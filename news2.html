@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+        <meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<title>中国应急管理报</title>
+		<link type="text/css" rel="stylesheet" href="/css/global.css">
+
+		
+		<link type="text/css" rel="stylesheet" href="/css/layout2.css">
+
+<link href="/css/laydate.css" rel="stylesheet" type="text/css" />
+<link href="/css/calendar.css" rel="stylesheet" type="text/css" />
+<link href="/css/myOrder.css" rel="stylesheet" type="text/css" />
+        <!-- PHPStat Start -->
+        <script language="JavaScript" charset="utf-8" src="http://phpstat.aqsc.cn/phpstat/count/abceffgh/abceffgh.js" ></script>
+        <!-- PHPStat End -->
+
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/common.js"></script>
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/Scroll.js"></script>
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/layout.js"></script>
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/jquery.validate.js"></script>
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/jquery.metadata.js"></script>
+		<script type="text/javascript" src="http://paper.aqsc.cn/tqPaper/webjs/laydate.js"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/index1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/calendar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/hotSpot.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/sso-login.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/judgeOrder.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/activateApp.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://paper.aqsc.cn/tqPaper/webjs/myOrder.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			function IEVersion() {
+	            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+	            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+	            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+	            var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+	            if(isIE) {
+	                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+	                reIE.test(userAgent);
+	                var fIEVersion = parseFloat(RegExp["$1"]);
+	                if(fIEVersion == 7) {
+	                   window.location.href = 'http://paper.aqsc.cn/tip.html';
+	                } else if(fIEVersion == 6) {
+	                    window.location.href = 'http://paper.aqsc.cn/tip.html';
+	                } else if(fIEVersion == 5) {
+	                     window.location.href = 'http://paper.aqsc.cn/tip.html';
+	                }else if(fIEVersion == 8){
+	                	window.location.href = 'http://paper.aqsc.cn/tip.html';
+	                }
+	            }
+	        }
+		IEVersion();
+		*/
+		if($.browser.msie){
+			window.location.href = 'http://paper.aqsc.cn/tip.html';
+		}else{
+			//alert( $.browser.version );
+		}
+
+/*数字报检索关键词验证*/		
+function per_submit(){
+  if(searchform.contentKey.value==""){
+  	alert("请输入检索内容");
+	return false;
+  }else{
+	return true;
+  }
+}
+
+		</script>
+        <style type="text/css">
+		.text{height: 34px;line-height: 34px; border: 2px solid #dedede; padding-left: 48px; background: url(http://www.aqsc.cn/common/css/search.png) no-repeat 10px 5px; width: 300px; color: #666; font-size:18px; background-color:#fff;}
+.btn{width:98px; height: 39px; border: none; background-color: #dedede; color: #000; font-size: 18px; cursor: pointer;}
+
+		</style>
+	</head>
+
+	<body id="allBody">
+    	<!-- <div style="position:absolute; right:5px; top:5px;"><a href="http://www.aqsc.cn/" target="_blank" style="color:#FFF;">中国安全生产网首页</a></div> -->
+		 
+		 	<span class="paperName" style="display: none;">中国应急管理报</span>
+		 	<span class="newPaperName" style="display: none;">中国应急管理报</span>
+		 	<span style="display: none;" id="paperdate">2024年09月26日</span>
+
+		<!--content-->
+		<div class="Newslistbox" style=" background:url(http://paper.aqsc.cn/tqPaper/webimages/img16.jpg) repeat-x;">
+			<!-- <ul class="user" style="margin-left:15px;">
+				<li class="pull-left" id="sso-active" style="font-size:14px;"><a onClick="ssologin()" href="javascript:void(0);" >登录 </a></li>
+				<li class="pull-left" id="sso-inactive" style="display:none;font-size:12px;"><a href="javascript:void(0);" id="uname"> </a><a class="exit" style="margin-left:4px;" onClick="exit()" href="javascript:void(0);">退出</a></li>
+			</ul>
+			<div class="entry pull-left clearfix">
+				<span class="tipWords pull-left">此报纸需要付费才能观看</span>
+				<span class="btnAll pull-right">
+					<input  class="payBtn" type="button" value="购买" />
+					<input class="activeBtn" type="button" value="激活报卡" />
+                    <input type="button" value="订阅指南" id="btn_dyzn" />
+				</span>
+			</div> -->
+			<div class="Newsmain">
+				<div class="Newsboxtit clearfix">
+                	<h3><img src="/img/logo_zgyjglb_350px.png" /></h3>
+                    <div style="margin:20px 0; float:left; padding-top:10px; padding-left:50px;">
+                    
+                    
+                    <form action="https://so.aqsc.cn/so.do?act=paperSo" style="display:flex;" method="post" name="epSearchForm" target="_blank" id="epSearchForm"><input name="TX" type="text" style="/* border: 1px solid #667BCE; */font-size: 18px;height: 30px;width:300px;line-height:30px !important;margin: 0;padding: 5px;background: url(http://www.aqsc.cn/common/css/search.png) no-repeat 10px 7px #fff;padding-left: 48px;" id="TX" class="teTT">
+                    <input type="submit" style="/* background: url('http://so.aqsc.cn/images/sea_btn.png') repeat scroll 0 0 transparent; */border: medium none;/* color: #FFFFFF; */cursor: pointer;font-size: 18px;height: 40px;margin-top: 0px;/* margin-left:15px; */outline: 0 none;width: 70px;background-size:70px 40px;border: 0px;" value="搜报纸"><input type="hidden" name="CL" value="数字报:应急报"/></form>
+                    
+                    
+                    <!--
+                    <form name="searchform" action="http://www.aqsc.cn/search/servlet/SearchServlet.do" onSubmit="return per_submit();" method="POST" style="margin:0px; padding:0px" target="_blank">
+    	<input name="contentKey" id="contentKey" type="text" size="50" maxlength="50" class="text">
+	            	<input type="submit" value="检索" name="search" class="btn"> 
+	                    <input type="hidden" name="siteID" value="0">
+                        <input type="hidden" name="sort" value="date"/>
+      </form>
+      -->
+
+                    
+                    </div>
+                    
+				</div>
+				<div class="newscon clearfix">
+					<div class="newsside">
+						<ul>
+							<li class="oneclick1">
+								<a class="Chunkicon" href="javascript:;"></a>
+								<div class="Chunkiconbox">
+									<em class="Chunem"></em>
+									<img class="Chunkiconimg" src="http://paper.aqsc.cn/tqPaper/webimages/pic21.png" />
+									<div class="Chunkiconlist">
+										
+																							<p>
+													<a href="coly1.html">第y1版：要闻</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly2.html">第y2版：综合</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly3.html">第y3版：党建</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly4.html">第y4版：安全生产</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly5.html">第y5版：消防救援</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly6.html">第y6版：企业</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly7.html">第y7版：探讨交流</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+												<p>
+													<a href="coly8.html">第y8版：副刊</a>
+													<a href="{sibling.pdfUrl}"></a>
+												</p>
+
+									</div>
+									<img class="Chunkiconimg" src="/pic22.png" />
+								</div>
+							</li>
+							<li class="oneclick2">
+								<a class="Calendar" href="javascript:;"></a>
+								<div class="Datebox"><input type="button" id="startDate" value=""> </div>
+							</li>
+							<li class="oneclick3">
+								<a class="Share" href="javascript:;"></a>
+								<div id="Sharelist" class="bdsharebuttonbox">
+									<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+									<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+									<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								</div>
+							</li>
+							<li class="oneclick4">
+								<a class="Phone" href="javascript:;"></a>
+								<div class="Phonecode">
+									<img src="http://paper.aqsc.cn/tqPaper/webimages/img22.jpg" />
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="newscondiv clearfix">
+						<a class="backlist" href="javascript:void(0)"></a>
+						<div class="newsconimg" style="position: relative;">
+							<div class="mark"></div>
+							<!-- 报纸 -->
+							
+								<img src="/img/1.jpg" USEMAP=#PagePicMap>
+								<MAP NAME="PagePicMap"><Area coords="346.5687225,6.172840000000001,296.62384499999996,6.172840000000001,294.796593,12.962964999999999,243.02446350000002,12.962964999999999,243.02446350000002,17.901235,346.5687225,17.901235" shape="polygon" href="../../content/202409/26/c239976.html"><Area coords="7.918092000000001,24.691360000000003,229.624619,24.691360000000003,229.624619,275.30864,7.918092000000001,275.30864" shape="polygon" href="../../content/202409/26/c239977.html"><Area coords="244.2426315,41.358025,341.69605049999996,41.358025,341.69605049999996,101.85185000000001,244.2426315,101.85185000000001" shape="polygon" href="../../content/202409/26/c239978.html"><Area coords="243.02446350000002,108.641975,339.8687985,108.641975,339.8687985,164.19753,243.02446350000002,164.19753" shape="polygon" href="../../content/202409/26/c239979.html"><Area coords="244.2426315,169.1358,341.69605049999996,169.1358,341.69605049999996,219.753085,244.2426315,219.753085" shape="polygon" href="../../content/202409/26/c239980.html"><Area coords="243.02446350000002,226.54321,341.08696649999996,226.54321,341.08696649999996,287.037035,243.02446350000002,287.037035" shape="polygon" href="../../content/202409/26/c239981.html"><Area coords="7.918092000000001,287.65432,59.690218,287.65432,59.690218,497.53086500000006,7.918092000000001,497.53086500000006" shape="polygon" href="../../content/202409/26/c239982.html"><Area coords="65.171974,288.88889,230.23370300000002,288.88889,230.23370300000002,408.641975,65.171974,408.641975" shape="polygon" href="../../content/202409/26/c239983.html"><Area coords="237.5427075,300.61728500000004,347.7868905,300.61728500000004,347.7868905,388.88888999999995,237.5427075,388.88888999999995" shape="polygon" href="../../content/202409/26/c239984.html"><Area coords="237.5427075,395.06172999999995,347.7868905,395.06172999999995,347.7868905,497.53086500000006,237.5427075,497.53086500000006" shape="polygon" href="../../content/202409/26/c239985.html"><Area coords="65.171974,413.580245,229.624619,413.580245,229.624619,497.53086500000006,65.171974,497.53086500000006" shape="polygon" href="../../content/202409/26/c239986.html"></MAP>
+
+							<div id="showMap" style="display: none; border: 2px solid rgb(16, 113, 184); opacity: 0.3; position: absolute;background-color: rgb(243, 152, 20);"><a style="width: 100%;height: 100%;" href="javascript:void(0)"></a></div>
+							<!--日历 begin-->
+						<div class="time-control" style="position: absolute;">
+							<div class="data_box" id="data_box">
+						 	 	<table cellspacing="0" cellpadding="0" style="background-color:#fff;width:213px;">
+									<tbody>
+										<tr>
+											<td  style="background: #f6f6f6; text-align: center;border: 1px solid #ddd;padding: 0 2px;">
+												<!--<img src="pre_year.gif" id="pre_y" onclick="changeY(-1);">-->
+												<span style="margin-left: -3px;margin-right: 5px;" class="ft18 pointer ft18 arrow-left"   onclick="changeY(-1);"></span>		
+												<!--<img id="pre_m" src="pre_month.gif">-->
+											</td>
+						 					<td>
+						 						<table cellspacing="0" cellpadding="0">
+						 							<tbody>
+						 								<tr>
+											 				<td>
+											 					<select style="width: 64px; height: 24px; border: 1px solid #ddd;" id="year_box" onchange="changeDate();">
+																<script type="text/javascript">
+																	yearList();
+																</script>
+															</td>
+															<td  align="center" style="background: #f6f6f6; text-align: center;border: 1px solid #ddd;padding: 0 2px;display: block;height: 22px;margin-right: 8px;"><span style="margin-left: 5px; margin-top: 6px;" class="ft18 pointer arrow-right"  onclick="changeY(1);"></span></td>
+															<td  style="background: #f6f6f6; text-align: center;border: 1px solid #ddd;padding: 0 2px;" align="center"><span style="margin-right: 6px;" class="ft18 pointer arrow-left"  onclick="changeMn(-1);"></span></td>									
+						 								</tr>
+						 							</tbody>
+						 						</table>
+						 					</td>
+						 					<td>
+												<table  cellspacing="0" cellpadding="0">
+											 		<tbody>
+											 			<tr>
+												 			<td>
+												 				<select style="width: 59px; height: 24px; border: 1px solid #ddd;" id="month_box" onchange="changeDate();">
+														 		<script type="text/javascript">
+														 			monthList();
+														 		</script>
+													 		</td>
+												 		</tr>
+						 							</tbody>
+												</table>
+											</td>
+										 	<td  style="background: #f6f6f6; text-align: center;border: 1px solid #ddd;padding: 0 2px;">
+										 		<span style="margin-left: 5px;" class="ft18 pointer arrow-right"  onclick="changeMn(1);"></span>
+										 		
+										 	</td>
+										</tr>
+						 			</tbody>
+						 	 	</table>
+								<table  cellspacing="0" cellpadding="0" class="data_table" id="data_table">
+									<thead>
+										<tr>
+											<th>日</th>
+											<th>一</th>
+											<th>二</th>
+											<th>三</th>
+											<th>四</th>
+											<th>五</th>
+											<th>六</th>
+										</tr>
+									</thead>
+									<tbody>
+										<script type="text/javascript">
+											tdlist();
+										 	loadCalendar();
+										</script>
+									</tbody>
+								</table>
+						</div>
+					</div>
+				<!--日历 end-->
+				</div>
+				<div class="newsconright">
+					<div class="Scrollbox" id="Scroll">
+						<div class="newsshow" id="ScroLeft">
+							<div class="newslisttit">
+								
+									<span class="newstime">2024年05月18日</span>
+									<img class="newstitimg" src="/img/logo_zgyjglb_95px.jpg" />
+									<em>第y2版：党建</em>
+
+							</div>
+							<div class="newslist">
+								<ul>
+									
+																					<li>
+												<h3><a href="/" >春梅的低吼</a></h3>
+												<p>
+													<p> <p>    "哎，你听说没?阿强又进'一违学习班’了!“</p> </p>
+												</p>
+											</li>
+											<li>
+												<h3><a href="/" >安静的站一会儿</a></h3>
+												<p>
+													<p> <p>   站着,这个姿态,一种意趣,半收,半放“放”的那一半在高处,可以穿越云朵飞扬,可以如老僧神定，也可以做一枚花朵临风膨胀</p></p>
+												</p>
+											</li>
+											<li>
+												<h3><a href="/" >一橱旧梦</a></h3>
+												<p>
+													<p> <p> 长长的沙滩江,犹如一条温柔的丝带,环绕着静的小村:小村中间横卧着一条马路,路面上的抗洼是岁月留下的痕边，见证着这片土地的变迁。马路西边，一排排房干错落有致。宁静的车后，我和母亲透过玻璃门，看着马路上来来往在的车辆，闲聊着家常</p></p>
+											</li>
+											<li>
+												<h3><a href="/" >凌霄依旧</a></h3>
+												<p>
+													<p> <p>  初夏，是季节更替的微妙时刻，官既保留着春日的温柔与生机，又预示着夏日的热烈与奔放。</p></p>
+												</p>
+											</li>
+											<li>
+												<h3><a href="/" >夏浅胜春</a></h3>
+												<p>
+													<p> <p>   伴随着暮春最后一场花事的落幕，初夏就这样款款而至。浓资相宜，当属这一年中最舒适的初夏时分。</p>  </p>
+												</p>
+											</li>
+											<li>
+												<h3><a href="/" >搓火绳</a></h3>
+												<p>
+													<p> <p>  《诗经·召南》第二篇《采》写道:“干以来蘩?于沼于沚。手以用之?公侯之事。于以果蘩?于洞之中，手以用之?公侯之官。”</p> </p>
+												</p>
+											</li>
+											<li>
+												<h3><a href="/" >小卖部的阿婆</a></h3>
+												<p>
+													<p> <p>  "小卖部里的阿婆不在了，好多人来送她，小院都挤不下了!”的几天，母亲打来电话，告诉我了这个惯耗。阿婆已是百岁老人，算是嘉丧，可我还是无法抑制心中的悲痛</p></p>
+											</li>
+											
+
+									<div class="articleContent">
+										<iframe class="articles" frameborder="no" scrolling="no" src="" width="" height=""></iframe>
+									</div>
+								</ul>
+							</div>
+						</div>
+						<!--<div class="Roller" id="ScroRight"><span id="ScroLine"></span></div>-->
+					</div>
+				</div>
+				</div>
+					<div class="newsnext">
+						
+															<a href="index.html">上一版</a>
+								<a href="news3.html">下一版</a>
+	
+					</div>
+				</div>
+			</div>
+			<div class="Therest">
+				<div class="Therestcon clearfix">
+					<a class="restleft" href="javascript:;"></a>
+					<a class="restright" href="javascript:;"></a>
+					<div class="Therestlist">
+						<ul class="" id="widthNone" style="width: 1200px;">
+							
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="index.html">
+									<img src="/img/2.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y1</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="news2.html">
+									<img src="/img/1.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y2</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="news3.html">
+									<img src="/img/3.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y3</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="news2.html">
+									<img src="/img/1.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y4</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="index.html">
+									<img src="/img/2.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y5</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="news3.html">
+									<img src="/img/3.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y6</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+							<li>
+								<a class="restmask" href="javascript:;"></a>
+								<a href="news2.html">
+									<img src="/img/1.jpg">
+								</a>
+								<p>
+									第<span class="layoutNum">y7</span>版
+									<a href="{sibling.pdfUrl}"></a>
+								</p>
+							</li>
+	
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--content-->
+		<!--激活窗口-->
+		<div class="dialog posR hide">
+			<div class="dialog-info">
+				<form action="" method="get" class="cmxform" id="signupForm">
+					<img class="closeBtn posA" src="http://paper.aqsc.cn/tqPaper/webimages/15.png"/>
+					<label for="idCard">
+						<input id="idCard" name="idCard" minlength="10" class="color9 mt87" type="text" placeholder="请输入报卡号" required/>
+					</label>
+					<label for="passWord">
+						<input id="passWord" type="password" minlength='6'  name="passWord" class="color9 mt20" type="text" placeholder="密码"  required/>
+					</label>
+					<div class="tip color6 mt5">激活成功后，该报卡号将与您的账号绑定，将不能取消或者修改</div>
+					<!--<button id="btn" class="btn activeBtn mt30">激活</button>-->
+					<input type="submit" name="" id="btnSubmit" value="激活" />
+				</form>	
+			</div>
+		</div>
+		<!--激活窗口-->
+		<!--激活成功提示-->
+		<!-- <div class="success">
+			<div class="success-info">
+				<img class="mt30 img26" src="http://paper.aqsc.cn/tqPaper/webimages/26.png" alt="" />
+				<img class="mt30 img24" src="http://paper.aqsc.cn/tqPaper/webimages/24.png" alt="" />
+				<div class="mt15 f13">已激活成功</div>
+			</div>
+		</div> -->
+		<!--激活成功提示-->
+		<!--提示激活购买窗口-->
+		<!-- <div class="tipMsg">
+			<img class="btnClose" src="http://paper.aqsc.cn/tqPaper/webimages/14.png"/>
+			<div class="buyTip">此报纸需要付费才能观看</div>
+			<div class ="btnGroup">
+				<a class="activBtn" href="javascript:void(0)">激活报卡</a>
+				<a class="buyBtn" href="javascript:void(0)">购买报纸</a>
+			</div>
+		</div> -->
+		<!--提示激活购买窗口-->
+		<!-- <div class="screen"></div> -->
+	</body>
+	<script>
+		var onOffScale = false;
+        
+        
+        //生成map 下面的area 以及热点坐标的换算
+        var	articleUrl = '';
+        var strObj = '';
+        
+        strObj = [{"mapping":["99.019635%,1.234568%","84.749670%,1.234568%","84.227598%,2.592593%","69.435561%,2.592593%","69.435561%,3.580247%","99.019635%,3.580247%"],"articleID":"239976"},{"mapping":["2.262312%,4.938272%","65.607034%,4.938272%","65.607034%,55.061728%","2.262312%,55.061728%"],"articleID":"239977"},{"mapping":["69.783609%,8.271605%","97.627443%,8.271605%","97.627443%,20.370370%","69.783609%,20.370370%"],"articleID":"239978"},{"mapping":["69.435561%,21.728395%","97.105371%,21.728395%","97.105371%,32.839506%","69.435561%,32.839506%"],"articleID":"239979"},{"mapping":["69.783609%,33.827160%","97.627443%,33.827160%","97.627443%,43.950617%","69.783609%,43.950617%"],"articleID":"239980"},{"mapping":["69.435561%,45.308642%","97.453419%,45.308642%","97.453419%,57.407407%","69.435561%,57.407407%"],"articleID":"239981"},{"mapping":["2.262312%,57.530864%","17.054348%,57.530864%","17.054348%,99.506173%","2.262312%,99.506173%"],"articleID":"239982"},{"mapping":["18.620564%,57.777778%","65.781058%,57.777778%","65.781058%,81.728395%","18.620564%,81.728395%"],"articleID":"239983"},{"mapping":["67.869345%,60.123457%","99.367683%,60.123457%","99.367683%,77.777778%","67.869345%,77.777778%"],"articleID":"239984"},{"mapping":["67.869345%,79.012346%","99.367683%,79.012346%","99.367683%,99.506173%","67.869345%,99.506173%"],"articleID":"239985"},{"mapping":["18.620564%,82.716049%","65.607034%,82.716049%","65.607034%,99.506173%","18.620564%,99.506173%"],"articleID":"239986"}];
+        // articleUrl = {
+		// 		239976 : "../../content/202409/26/c239976.html",
+		// 		239977 : "../../content/202409/26/c239977.html",
+		// 		239978 : "../../content/202409/26/c239978.html",
+		// 		239979 : "../../content/202409/26/c239979.html",
+		// 		239980 : "../../content/202409/26/c239980.html",
+		// 		239981 : "../../content/202409/26/c239981.html",
+		// 		239982 : "../../content/202409/26/c239982.html",
+		// 		239983 : "../../content/202409/26/c239983.html",
+		// 		239984 : "../../content/202409/26/c239984.html",
+		// 		239985 : "../../content/202409/26/c239985.html",
+		// 		239986 : "../../content/202409/26/c239986.html"
+        // }
+
+        $("map[name='PagePicMap']").empty();
+        if(onOffScale){
+            localStorage.setItem("iframeBox", "true");
+            for(var i = 0; i< strObj.length; i++){
+                var arr = [];
+                for(var j = 0; j < strObj[i].mapping.length; j++){
+                    var x = (strObj[i].mapping[j].split(',')[0].split('%')[0])*1091/100;
+                    var y = (strObj[i].mapping[j].split(',')[1].split('%')[0])*766/100;
+                    arr.push(x);
+                    arr.push(y);
+                }
+                var areaNew = $("<area>");
+                areaNew.attr("coords",arr.join(","));
+                areaNew.attr("shape","polygon");
+                areaNew.attr("href",articleUrl[strObj[i].articleID]);
+                $("map[name='PagePicMap']").append(areaNew);
+            }
+        }else{
+            localStorage.setItem("iframeBox", "false");
+            for(var i = 0; i< strObj.length; i++){
+                var arr = [];
+                for(var j = 0; j < strObj[i].mapping.length; j++){
+                    var x = (strObj[i].mapping[j].split(',')[0].split('%')[0])*544/100;
+                    var y = (strObj[i].mapping[j].split(',')[1].split('%')[0])*766/100;
+                    arr.push(x);
+                    arr.push(y);
+                }
+                var areaNew = $("<area>");
+                areaNew.attr("coords",arr.join(","));
+                areaNew.attr("shape","polygon");
+                areaNew.attr("href",articleUrl[strObj[i].articleID]);
+                $("map[name='PagePicMap']").append(areaNew);
+            }
+		}
+		window._bd_share_config = {
+			"common": {
+				"bdSnsKey": {},
+				"bdText": "",
+				"bdMini": "2",
+				"bdMiniList": false,
+				"bdPic": "",
+				"bdStyle": "0",
+				"bdSize": "16"
+			},
+			"share": {}
+		};
+		/* updated by maning @ Feb 14, 2022*/
+		$(document).ready(function(){
+			$("#btn_dyzn").click(function(){
+				window.open('http://www.aqsc.cn/aboutus/c7434.html', '_blank');
+			});
+			
+			/*如果遮罩层隐藏  可以阅读报纸  随隐藏购买和激活按钮*/
+			var checkTimer = setInterval(function(){
+				var uname = $("#uname").html();
+				if( uname != "" && uname != null && uname != undefined  ){
+					console.log('.mark display: ' + $(".mark").css("display"));
+					if( $(".mark").css("display") == 'block' ){
+					}else{
+						$(".btnAll, .payBtn").fadeOut();
+						$(".btnAll, .activeBtn").fadeOut();
+						$(".tipWords").html("您是付费用户，可自由查阅报纸。");
+					}
+				}
+			}, 1000);
+			/*如果遮罩层隐藏  可以阅读报纸  随隐藏购买和激活按钮*/
+			
+		});
+		/* updated by maning @ Feb 14, 2022*/
+        function load(obj){
+
+            $(".articles").load(function(){
+
+              $('#iframeBox',$(".articles").contents().context).attr('link','../../tqPaper/webcss/'+ obj +'.css')
+			})
+        }
+		with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+	</script>
+</html>

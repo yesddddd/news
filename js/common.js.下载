@@ -1,0 +1,9 @@
+var amucUrl="http://203.187.176.76:8081/amuc/api/";
+var xyUrl="http://172.19.47.92:8181/";
+var ssoUrl="http://203.187.176.76:9080/SSOv2/";
+var ssourl = 'http://sso2.aqsc.cn/SSOv2/';
+var szbpcUrl="http://172.19.32.122/xy/pad/";
+var pageUrl = "http://203.187.176.76:8081/";
+var paperUrl  = 'http://paper.aqsc.cn/';
+var userUrl = 'http://paper.aqsc.cn/'
+var paper = 'col'

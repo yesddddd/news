@@ -1,0 +1,155 @@
+var code;
+var msg;
+var apply1 = {
+	uid: 0,
+	init: function(){
+		this.tableValidate();
+		this.validateAndSubmit();
+	},
+	validateAndSubmit:function(){
+//		var Request = new Object();
+//		Request = apply1.getUrlStr();
+//		uid = Request["uid"];
+		var uid=doGetCookie("uid_fouNder");
+		$("#signupForm input[type='submit']").click(function(){
+			var regId=/^\S+$/;//不为空
+			var regPsw=/^[0-9a-zA-Z]{5,}$/;//6位以上字母或数字
+			var idCard1 = $("#idCard").val();
+			var idCard = $.trim(idCard1);
+			var pass = $("#passWord").val();
+//			apply1.tableValidate();
+			var isID=regId.test(idCard);
+			var isPsw=regPsw.test(pass);
+			if(isID && isPsw){
+				$.ajax({
+					type:"get",
+					url:amucUrl + 'pcard/activatePaperCard',
+					async:false,
+					dataType : "json",
+					data:{
+						ssoid:uid,
+						pcno:idCard,
+						password:pass
+					},
+					success:function(datas){
+						console.log(datas);
+						$("#idCard").val("");
+						$("#passWord").val("");
+						switch(datas.code){
+							case "1000":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							break;
+							case "1001":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							$(".img24").hide();
+							$(".img26").show();
+							break;
+							case "1002":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							$(".img24").hide();
+							$(".img26").show();
+							break;
+							case "1003":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							$(".img24").hide();
+							$(".img26").show();
+							break;
+							case "1004":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							$(".img24").show();
+							$(".img26").hide();
+							break;
+							case "1005":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							$(".img24").hide();
+							$(".img26").show();
+							break;
+							case "1006":
+							$(".success").show();
+							$(".success-info div").html(datas.msg);
+							$(".img24").hide();
+							$(".img26").show();
+							break;
+						}
+						setTimeout(function(){
+							$(".success").hide();
+							if(datas.msg == '报卡激活成功'){
+								window.location.reload();
+							}
+						},1000)
+						
+					},
+					error:function(){
+						alert("出问题了！");
+					}
+					
+				});
+				return false;
+			}
+			
+			
+		})
+	},
+	tableValidate: function(){
+		$("#signupForm").validate({
+		    rules: {
+		      idCard: "required",
+		      passWord: {
+		        required: true,
+		        minlength: 6
+		      }
+		    },
+		    messages: {
+		      idCard: "*请输入您的报卡号",
+		      passWord: {
+		        required: "*请输入密码",
+		        minlength: "*密码长度不能小于 6 个字母"
+		      }
+		      
+		    }
+		});
+	},
+	activateApp: function(){
+		var url = amucUrl + 'pcard/activatePaperCard';
+		$.ajax({
+			url: url,
+			type:"POST",
+			dataType:'json',
+			async:true,
+			success:function(datas){
+				code = datas.code;
+				msg = datas.msg;
+			},
+          	error:function(){
+            	alert("出错了");
+          }
+          	
+		});
+	},
+	getUrlStr:function(){
+	   var url = location.search; //获取url中"?"符后的字串   
+	   var theRequest = new Object();   
+	   if (url.indexOf("?") != -1) {   
+	      var str = url.substr(1);   
+	      strs = str.split("&");   
+	      for(var i = 0; i < strs.length; i ++) {   
+	         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+	      }   
+	   }   
+	   return theRequest;   
+	}
+	
+}
+
+
+
+$(function(){
+	apply1.init();
+})
+

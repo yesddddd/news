@@ -1,0 +1,388 @@
+/*正文样式*/
+
+.menu {
+	min-height: 500px;
+	background-color: #f6f6f6;
+	width: 180px;
+	font-size: 14px;
+	color: #333;
+}
+
+.menu li {
+	height: 42px;
+	line-height: 42px;
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+.select {
+	background: #fff;
+	border-left: 2px solid #f24547;
+}
+
+#tab {
+	width: 800px;
+	position: relative;
+	margin-top: 12px;
+	margin-left: 20px;
+}
+
+#tab .tab_menu {
+	width: 100%;
+	float: left;
+	position: absolute;
+	z-index: 1;
+	border-bottom: 1px solid #ddd;
+}
+
+#tab .tab_menu li {
+	float: left;
+	width: 92px;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 0px;
+	cursor: pointer;
+	text-align: center;
+	margin: 0 2px 0 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #999;
+}
+
+#tab .tab_box {
+	width: 800px;
+	margin-top: 52px;
+}
+
+#tab .tab_menu .selected {
+	border-bottom: 2px solid #f24549;
+	cursor: pointer;
+	color: #333;
+}
+
+.hide {
+	display: none;
+}
+div.allOrder,div.finishOrder,div.qxOrder,div.waitPay{
+	border: 1px solid #ddd;
+	border-top: none;
+}
+div.timeAndOrder{
+	line-height: 40px;
+	background-color: #f6f6f6;
+	height: 40px;
+	padding: 0 20px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+.meal{
+	padding: 20px;
+}
+.mealContent{
+	padding: 20px 0;
+}
+.oncePay{
+	background-color: #f2454b;
+    border-radius: 3px;
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+.btn{
+	background: #f24547;
+	border-radius: 3px;
+	border: none;
+	color: #fff;
+	font-family:"microsoft yahei"
+}
+.activBtn{
+	width: 125px;
+	height: 35px;
+	line-height: 35px;
+	margin: 20px;
+	margin-left: 0;
+	margin-top: 0;
+}
+.myMeal{
+	width: 780px;
+	padding: 20px;
+}
+.mealTitle{
+	background-color: #f6f6f6;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #ddd;
+}
+.mealContents{
+	border: 1px solid #ddd;
+}
+.mealDetail{
+	padding: 20px;
+	width: 30%;
+}
+.mealsuit{
+	padding: 0;
+}
+.mt60{
+	margin-top: 60px;
+}
+.xOrder{
+	width: 75px;
+	height: 30px;
+	line-height: 30px;
+}
+.read{
+	width: 75px;
+	height: 30px;
+	line-height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #999;
+	background: #fff;
+	border-radius: 3px;
+	font-family: "microsoft yahei";
+}
+.mt50{
+	margin-top: 50px;
+}
+.pl20{
+	padding-left: 20px;
+}
+.pl100{
+	padding-left: 100px;
+}
+.pl165{
+	padding-left: 165px;
+}
+.pl48{
+	padding-left: 48px;
+}
+.bb0{
+	border-bottom: 0;
+}
+.mealTable{
+	border-bottom: 1px solid #ddd;
+}
+.mealTable:last-child{
+	border-bottom: none;
+}
+.menuBtn{
+	width: 391px;
+}
+.dialog,.finishPay,.unfinishPay{
+	width: 570px;
+	height: 380px;
+	position: absolute;
+	z-index: 9999;
+	left: 50%;
+	top: 50%;
+	margin-left: -285px;
+	margin-top: -190px;
+	background: #fff;
+}
+.dialog input{
+	width: 385px;
+	height: 40px;
+	line-height: 40px;
+	font-family: "microsoft yahei";
+	border: 1px solid #ddd;
+	padding-left: 5px;
+}
+.dialog .activeBtn{
+	width: 125px;
+	height: 35px;
+	line-height: 35px;
+}
+.dialog-info{
+	width: 385px;
+	margin: 0 auto;
+	text-align: center;
+}
+.dialog .closeBtn,.finishPay .closeBtn,.unfinishPay .closeBtn{
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+.screen{
+	width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 98;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.success{
+	width: 190px;
+	height: 120px;
+	background: rgba(0,0,0,0.8);
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left:-95px;
+	margin-top: -30px;
+	color: #fff;
+	z-index: 9999;
+	display: none;
+}
+.success-info{
+	/*width: 65px;*/
+    margin: 0 auto;
+    text-align: center;
+}
+.finishPay-info,.unfinishPay-info{
+	width: 240px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 110px;
+}
+.txtLeft{
+	text-align: left;
+}
+.checkOrder{
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+    margin-left: -22px;	
+}
+.pr45{
+	padding-right: 45px;
+}
+.pr24{
+	padding-right: 24px;
+}
+.pr28{
+	padding-right: 28px;
+}
+.menuBtn > span{
+	display: inline-block;
+	width: 50px;
+}
+.width96{
+	width: 116px !important;
+}
+.width65{
+	width: 65px !important;
+}
+.mr30{
+	margin-right: 30px;
+}
+.hide1{
+	display: none !important;
+	
+}
+.show{
+	display: block;
+}
+.img26{
+	display: none;
+	width: 30px;
+}
+.login-cont input{
+	width: 280px;
+    height: 25px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    padding-left: 5px;
+    font-family: '微软雅黑';
+    margin-bottom: 10px;
+}
+.f-btn1{
+	background: #f24547;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    font-family: "microsoft yahei";
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+}
+.orderDetail,.oncePay{
+	cursor: pointer;
+}
+.orderDetail:hover{
+	color: #f24548;
+}
+.mealSpan{
+	display: inline-block;
+	width: 40%;
+}
+
+.tipMsg{
+	position: ABSOLUTE;
+    z-index: 9999;
+    width: 200px;
+    height:139px;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -70px;
+    border-radius: 5px;
+    text-align: center;
+   	background-color: #fff;
+   	display: none;
+}
+.buyTip{
+	border-bottom: 1px solid #ddd;
+    padding: 40px 0;
+}
+.btnGroup{
+	text-align: center;
+    /*padding-top: 10px;*/
+}
+.activBtn{
+	border-right: 1px solid #ddd;
+    padding: 8px 20px 7px 10px;
+}
+.buyBtn{
+    padding: 15px;
+    margin-top: 30px;
+    padding-left: 0;
+}
+.screen{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	position:absolute;
+	z-index: 9998;
+	left: 0;
+	top: 0;
+	display: none;
+}
+.btnClose{
+	position: absolute;
+    right: 4px;
+    top: 3px;
+    width: 20px;
+    cursor: pointer;
+}
+.posA{
+	position: absolute;
+}
+.mt87{
+	margin-top: 87px;
+}
+.mt5{
+	margin-top: 5px;
+}
+.mt30{
+	margin-top: 30px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.entry{
+	color: #fff;
+}
+.btnAll input[type='button']{
+	padding: 3px 10px;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
