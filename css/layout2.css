@@ -338,7 +338,7 @@ input {
 	height: 700px;
 	float: left;
 	padding: 40px 0 19px 19px;
-	background: url(../webimages/img19.jpg) left top repeat-y;
+	background: url(/img/img19.jpg) left top repeat-y;
 	overflow: auto;
 }
 
@@ -346,7 +346,7 @@ input {
 	width: 500px;
 	float: left;
 	padding: 20px 0 19px 19px;
-	background: url(../webimages/img19.jpg) left top repeat-y;
+	background: url(/img/img19.jpg) left top repeat-y;
 }
 
 .Scrollbox {
